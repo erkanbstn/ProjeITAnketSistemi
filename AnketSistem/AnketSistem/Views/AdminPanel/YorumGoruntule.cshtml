@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model List<TYorum>
+@{
+    ViewBag.Title = "YorumGoruntule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yorum Goruntule</h2>
+<br />
+<table class="table table-hover">
+    <tbody>
+        <tr>
+            <th>
+                Yorum
+            </th>
+            <th>
+                Personel
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @if (item.AnketID == ViewBag.anket)
+                {
+                    <td>
+                        @item.YorumAd
+                    </td>
+                    <td>
+                        @item.Personel.PersonelAd
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+

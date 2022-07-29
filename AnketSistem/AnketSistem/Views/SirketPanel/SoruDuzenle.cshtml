@@ -1,0 +1,18 @@
+﻿@model EntityLayer.Concrete.TSoru
+@{
+    ViewBag.Title = "SoruDuzenle";
+}
+
+<h2>Soru Duzenle</h2>
+<hr />
+<form method="post">
+    <input type="hidden" value="@ViewBag.anket" name="AnketID" />
+    @Html.HiddenFor(b => b.SoruID)
+    <label>Soru Adı</label>
+    @Html.TextBoxFor(b => b.SoruAd, new { @class = "form-control", placeholder = "Soru Adı Giriniz" })
+    <br />
+    <label>Soru Tipi</label>
+    @Html.TextBoxFor(b => b.SoruTip, new { @class = "form-control", placeholder = "Soru Tipi Giriniz", @readonly = "readonly" })
+    <br />
+    <input type="submit" class="btn btn-info" value="Değişiklikleri Kaydet" />
+</form>

@@ -1,0 +1,15 @@
+﻿@model EntityLayer.Concrete.TPersonel
+
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Personel Ekle</h2>
+<hr />
+<form method="post">
+    <label>Personel Adı</label>
+    <input type="text" class="form-control" name="PersonelAd" placeholder="Personel Adı Giriniz" />
+    <br />
+    <input type="submit" class="btn btn-info" value="Değişiklikleri Kaydet" />
+</form>

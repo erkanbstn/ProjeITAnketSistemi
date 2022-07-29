@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<TOpsiyon>
+@{
+    ViewBag.Title = "SoruOpsiyonlari";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Soru Opsiyonları</h2>
+<table class="table table-hover">
+    <tbody>
+        <tr>
+            <th>
+                Opsiyon
+            </th>
+            <th>
+                Düzenle
+            </th>
+            <th>
+                Sil
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Opsiyon
+                </td>
+                <td>
+                    <a class="btn btn-success" href="~/SirketPanel/SoruOpsiyonDuzenle/@item.OpsiyonID">Düzenle</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="~/SirketPanel/SoruOpsiyonSil/@item.OpsiyonID">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

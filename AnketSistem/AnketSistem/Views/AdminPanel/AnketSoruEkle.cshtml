@@ -1,0 +1,24 @@
+﻿@model  EntityLayer.Concrete.TSoru
+@{
+    ViewBag.Title = "AnketSoruEkle";
+}
+
+<h2>Anket Soru Ekle</h2>
+<hr />
+<form method="post">
+    <input type="hidden" value="@ViewBag.anket" name="AnketID" />
+    <label>Soru Adı</label>
+    @Html.TextBoxFor(b => b.SoruAd, new { @class = "form-control", placeholder = "Soru Adı Giriniz" })
+    <br />
+    <label>Soru Tipi</label>
+    @Html.DropDownList("SoruTipleri",
+            new[]
+            {
+           new SelectListItem() { Value="Açıklama",Text="Açıklama"},
+           new SelectListItem() { Value="Çoktan Seçmeli",Text="Çoktan Seçmeli"},
+           new SelectListItem() { Value="Tek Seçim",Text="Tek Seçim"}
+            }, "Soru Tipi Seçiniz", new { @class = "form-control" })
+    <br />
+    <input type="submit" class="btn btn-info" value="Değişiklikleri Kaydet" />
+</form>
+

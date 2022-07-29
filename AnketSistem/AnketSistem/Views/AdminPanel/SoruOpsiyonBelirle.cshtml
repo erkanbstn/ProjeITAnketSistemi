@@ -1,0 +1,15 @@
+﻿@model EntityLayer.Concrete.TOpsiyon
+@{
+    ViewBag.Title = "SoruOpsiyonBelirle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Soru Opsiyon Belirle</h2>
+<hr />
+<form method="post">
+    <input type="hidden" value="@ViewBag.soru" name="SoruID" />
+    <label>Opsiyon Adı</label>
+    @Html.TextBoxFor(b => b.Opsiyon, new { @class = "form-control", placeholder = "Opsiyon Adı Giriniz" })
+    <br />
+    <input type="submit" class="btn btn-info" value="Değişiklikleri Kaydet" />
+</form>

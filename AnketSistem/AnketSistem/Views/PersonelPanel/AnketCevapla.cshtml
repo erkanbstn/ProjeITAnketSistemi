@@ -1,0 +1,64 @@
+﻿@model AnketSistem.Models.SoruOpsiyonViewModel
+@{
+    ViewBag.Title = "AnketCevapla";
+}
+
+<h2>Anket Adı : @ViewBag.anket</h2>
+<hr />
+<br />
+@{
+    int i = 1;
+}
+<form method="post">
+    @foreach (var item in Model.Sorular)
+    {
+        <div>
+            @i) @item.SoruAd
+        </div>
+        <br />
+        <label>Cevabınız :</label>
+        if (item.SoruTip == "Açıklama")
+        { <input type="text" class="form-control" name="accevap" />
+            <input type="hidden" value="@item.SoruID" class="form-control" name="acsoru" />
+        }
+        else if (item.SoruTip == "Tek Seçim")
+        {
+            <select id="SelectedYear" class="form-control" name="radcevap">
+                <option value="">Bir Seçenek Belirleyiniz</option>
+                @foreach (var item2 in Model.Opsiyonlar)
+                {
+                    if (item2.SoruID == item.SoruID)
+                    {
+                        <option value="@item2.Opsiyon,@item.SoruID">@item2.Opsiyon</option>
+                        @*<input type="radio" name="radcevap" value="@item2.Opsiyon,@item.SoruID" />
+                            @item2.Opsiyon*@
+                    }
+                }
+            </select>
+
+        }
+        else
+        {
+            foreach (var item3 in Model.Opsiyonlar)
+            {
+                if (item3.SoruID == item.SoruID)
+                {
+                    <input type="checkbox" name="checkcevap" value="@item3.Opsiyon,@item3.SoruID" />
+                    @item3.Opsiyon
+                }
+            }
+        }
+        <hr />
+        <br />
+        i++;
+    }
+    <span>*************************************************************************************************************************************************************************************************************************************</span>
+    <br />
+    <br />
+    Anket Yorumunuz :
+    <textarea type="text" required class="form-control" name="YorumAd"></textarea>
+    <input type="hidden" class="form-control" name="aid" value="@ViewBag.anket" />
+    <br />
+    <input type="submit" class="btn btn-primary" value="Cevapları Gönder" />
+</form>
+<br />
